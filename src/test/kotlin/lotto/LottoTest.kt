@@ -20,5 +20,17 @@ class LottoTest {
         }
     }
 
-    // TODO: Implement tests based on the added features
+    @Test
+    fun `should throw error if numbers are out of range`() {
+        val invalidLotto = listOf(1, 2, 3, 4, 5, 46)
+        assertThrows<IllegalArgumentException> {
+            Lotto(invalidLotto)
+        }
+    }
+
+    @Test
+    fun `should create valid Lotto object with valid numbers`() {
+        val validLotto = Lotto(listOf(1, 2, 3, 4, 5, 6))
+        assertThat(validLotto).isNotNull
+    }
 }
